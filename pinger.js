@@ -10,7 +10,7 @@ bot.command('start',async (ctx) => {
     users.push(ctx.chat.id)
     bot.telegram.sendMessage(ctx.chat.id, 'Registered to service.', {})
     console.log('Registered', ctx.chat.username)
-    cron.schedule('* * * * *', async () => {
+    cron.schedule('*/15  * * * *', async () => {
       const data = await ping()
       if (!data) {
         console.log((new Date).toISOString())
